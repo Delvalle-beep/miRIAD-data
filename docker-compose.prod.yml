@@ -1,7 +1,7 @@
 version: "3"
 services:
-  nest-basic-layout-prod:
-    container_name: nest-basic-layout-production
+  miriad-dump-prod:
+    container_name: miriad-dump-production
     build:
       context: .
       dockerfile: Dockerfile
@@ -17,7 +17,7 @@ services:
       - db
       - nms
     networks:
-      - nest-basic-layout-network
+      - miriad-dump-network
   db:
     image: postgres:12.2
     restart: always
@@ -26,8 +26,8 @@ services:
     env_file:
       - .env
     networks:
-      - nest-basic-layout-network
+      - miriad-dump-network
 
 networks:
-  nest-basic-layout-network:
+  miriad-dump-network:
     driver: bridge

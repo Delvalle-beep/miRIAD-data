@@ -1,25 +1,21 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import {
-  AuthorizationModule,
-  UserModule,
-} from './domain';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import * as dotenv from 'dotenv';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { DumpModule } from './domain';
 dotenv.config();
 
 @Module({
   imports: [
-    UserModule,
-    AuthorizationModule,
+    DumpModule,
     TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: process.env.POSTGRES_HOST || 'localhost',
-      port: parseInt(process.env.POSTGRES_PORT) || 5432,
-      username: process.env.POSTGRES_USERNAME || 'postgres',
-      password: process.env.POSTGRES_PASSWORD || 'postgres',
-      database: process.env.POSTGRES_DB || 'postgres',
+      type: 'mysql',
+      host: process.env.MYSQL_HOST || 'localhost',
+      port: parseInt(process.env.MYSQL_PORT) || 3306,
+      username: process.env.MYSQL_USER || 'postgres',
+      password: process.env.MYSQL_PASSWORD || 'postgres',
+      database: process.env.MYSQL_DATABASE || 'postgres',
       autoLoadEntities: true,
       synchronize: true,
     }),

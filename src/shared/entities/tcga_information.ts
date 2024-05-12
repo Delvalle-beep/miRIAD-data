@@ -1,13 +1,13 @@
-import { Entity, Column } from "typeorm"
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class tcga_information {
-    @Column()
-    id: number
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    tcga_symbol: string
+  @Column()
+  tcga_symbol: string;
 
-    @Column()
-    tcga_name: string
+  @Column()
+  tcga_name: string;
 }

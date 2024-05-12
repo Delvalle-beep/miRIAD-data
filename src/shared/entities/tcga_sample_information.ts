@@ -1,27 +1,24 @@
-import { Entity,
-    Column, 
-    PrimaryGeneratedColumn, 
-    OneToMany, 
-    JoinColumn,
-    } from "typeorm"
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
-import { tcga_information } from "./tcga_information"
+import { tcga_information } from './tcga_information';
 
 @Entity()
 export class tcga_sample_information {
-    @Column()
-    id: number
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    sample_type: string
+  @Column()
+  sample_type: string;
 
-    @Column()
-    case_id: string
+  @Column()
+  case_id: string;
 
-    @Column()
-    sample_id: string
+  @Column()
+  sample_id: string;
 
-    @OneToMany(() => tcga_information, (tcga_information => tcga_information.tcga_symbol)) // note: we will create author property in the Photo class below
-    tcga_symbol: tcga_information[]
-
+  @OneToMany(
+    () => tcga_information,
+    (tcga_information) => tcga_information.tcga_symbol,
+  )
+  tcga_symbol: tcga_information[];
 }

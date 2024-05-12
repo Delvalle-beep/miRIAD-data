@@ -1,34 +1,34 @@
-import { Entity, Column } from "typeorm"
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class gene_information {
-    @Column()
-    id: number
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    symbol: string
+  @Column()
+  symbol: string;
 
-    @Column()
-    entrez_id: string
+  @Column()
+  entrez_id: string;
 
-    @Column()
-    hgnc_id: string
+  @Column()
+  hgnc_id: string;
 
-    @Column()
-    ensembl_id: string
+  @Column()
+  ensembl_id: string;
 
-    @Column()
-    mim_id: string
+  @Column()
+  mim_id: string;
 
-    @Column()
-    hprd_id: string
+  @Column()
+  hprd_id: string;
 
-    @Column()
-    description: string
+  @Column()
+  description: string;
 
-    @Column()
-    type: string
+  @Column()
+  type: string;
 
-    @Column("text")
-    summary: string
+  @Column('text')
+  summary: string;
 }

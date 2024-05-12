@@ -4,6 +4,15 @@ import * as dotenv from 'dotenv';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DumpModule } from './domain';
+import {
+  gene_expression_tcga,
+  gene_information,
+  mirna_expression_tcga,
+  mirna_information,
+  tcga_information,
+  tcga_sample_information,
+} from './shared/entities';
+
 dotenv.config();
 
 @Module({
@@ -16,6 +25,14 @@ dotenv.config();
       username: process.env.MYSQL_USER || 'postgres',
       password: process.env.MYSQL_PASSWORD || 'postgres',
       database: process.env.MYSQL_DATABASE || 'postgres',
+      entities: [
+        gene_expression_tcga,
+        gene_information,
+        mirna_expression_tcga,
+        mirna_information,
+        tcga_information,
+        tcga_sample_information,
+      ],
       autoLoadEntities: true,
       synchronize: true,
     }),
